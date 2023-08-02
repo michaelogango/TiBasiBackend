@@ -19,19 +19,4 @@ const book = async (req, res) => {
   }
 };
 
-// Get bookings for a specific host (you can modify this route as needed)
-app.get('/bookings/:userId', async (req, res) => {
-    const userId = req.params.userId;
-  
-    try {
-      // Find bookings for the specified host
-      const bookings = await Booking.find({ userId });
-  
-      res.status(200).json({ bookings });
-    } catch (error) {
-      console.error('Fetch bookings error:', error);
-      res.status(500).json({ message: 'Internal server error' });
-    }
-  });
-
   export {book}
