@@ -6,6 +6,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import fileupload from 'express-fileupload';
 import Users from './routes/Users.js';
+import daraja from './routes/daraja.js';
 import Booking from './routes/Booking.js';
 
 const app=express()
@@ -15,6 +16,8 @@ app.use(bodyParser.json({limit:"30mb",extended:true}))
 app.use(bodyParser.urlencoded({limit:"30mb",extended:true}))
 app.use('/users',Users)
 app.use('/book',Booking)
+
+app.use('/daraja',daraja)
 
 // connect mongo 
 const CONNECTION_URL = 'mongodb+srv://odhis101:natasha12@cluster0.r1d9hq1.mongodb.net/tibasi?retryWrites=true&w=majority'
