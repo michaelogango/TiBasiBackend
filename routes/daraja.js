@@ -19,7 +19,7 @@ router.get ('/access_token', getaccess_token, (req, res)=>{
 function getaccess_token(req, res,next){
  
     let url = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials";
-    let auth = "Basic " + new Buffer.from(consumer_key + ":" + consumer_secret).toString("base64");
+    let auth = "Basic" + new Buffer.from(consumer_key + ":" + consumer_secret).toString("base64");
     request(
         {
             url: url,
