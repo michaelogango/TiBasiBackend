@@ -16,7 +16,6 @@ app.use(bodyParser.json({limit:"30mb",extended:true}))
 app.use(bodyParser.urlencoded({limit:"30mb",extended:true}))
 app.use('/users',Users)
 app.use('/book',Booking)
-
 app.use('/daraja',daraja)
 
 // connect mongo 

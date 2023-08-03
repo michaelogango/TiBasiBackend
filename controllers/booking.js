@@ -1,4 +1,4 @@
-import Booking from '../models/bookModel';
+import Booking from '../models/bookModel.js';
 
 // ...
 
