@@ -6,8 +6,8 @@ import asyncHandler from 'express-async-handler';
 import Callback from "../models/mpesaModels.js";
 
 const router = express.Router();
-const consumer_key = '9B6p2jDHkBgIsA0aro7C8sG7aoIkSknq';
-const consumer_secret  = 'qrroGh2dokKhpSHR';
+const consumer_key = 'l7GZAVBoZX1OXUZsC9wyGOn9pAFZOpou';
+const consumer_secret  = 'Cm0AQLQxoHYQ8ur3';
 const Backend_url = 'https://tibasi.uc.r.appspot.com';
 
 router.get ('/access_token', getaccess_token, (req, res)=>{
@@ -19,7 +19,8 @@ router.get ('/access_token', getaccess_token, (req, res)=>{
 function getaccess_token(req, res,next){
  
     let url = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials";
-    let auth = "Basic" + new Buffer.from(consumer_key + ":" + consumer_secret).toString("base64");
+    let auth = "Basic " + new Buffer.from(consumer_key + ":" + consumer_secret).toString("base64");
+    console.log(auth)
     request(
         {
             url: url,
@@ -31,7 +32,7 @@ function getaccess_token(req, res,next){
             if (error) {
                 console.log('here is the error ',error);
             } else {
-                //console.log('here is the body ',body);
+                console.log('here is the body ',body);
                req.access_token = JSON.parse(body).access_token;
                //console.log(req.IncomingMessage) 
                next()
@@ -65,6 +66,8 @@ function addDays(date, days) {
     let auth = "Bearer "+ req.access_token;
     const {number,amount,id} = req.body;
     console.log(auth);
+    console.log(req.body);
+    console.log(number);
 
     request(
         
